@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Muhammad Naveed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* PAGE BANNER */
+    .page-banner {
+      min-height: 35vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 40px 60px;
+      background: radial-gradient(ellipse at top right, #2a0000 0%, #0a0000 70%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--white-muted);
+      margin-bottom: 15px;
+    }
+
+    .breadcrumb a {
+      color: var(--red-bright);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .page-banner h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .page-banner h1 span {
+      color: var(--red-bright);
+    }
+
+    .page-banner p {
+      color: var(--white-muted);
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    /* MY STORY */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-photo-wrap {
+      position: relative;
+    }
+
+    .story-photo {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px solid var(--red-primary);
+      box-shadow: 0 0 40px var(--red-glow);
+    }
+
+    .story-photo-placeholder {
+      width: 100%;
+      height: 450px;
+      border-radius: 20px;
+      background: var(--bg-card);
+      border: 3px dashed var(--red-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--white-muted);
+      font-size: 15px;
+      text-align: center;
+      gap: 15px;
+    }
+
+    .story-photo-placeholder i {
+      font-size: 60px;
+      color: var(--red-primary);
+    }
+
+    .story-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--red-bright);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 5px 25px var(--red-glow);
+    }
+
+    .story-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--red-bright);
+      margin-bottom: 25px;
+      line-height: 1.6;
+      border-left: 3px solid var(--red-bright);
+      padding-left: 20px;
+    }
+
+    .story-text p {
+      color: var(--white-muted);
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .achieve-badge {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red-bright);
+      border-radius: 10px;
+      padding: 15px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      transition: all 0.3s;
+    }
+
+    .achieve-badge:hover {
+      border-color: var(--red-bright);
+      box-shadow: 0 0 20px var(--red-glow);
+      transform: translateX(5px);
+    }
+
+    /* SKILLS */
+    .skills-section {
+      background: var(--bg-section);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 30px 25px;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--red-bright);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .skill-card:hover {
+      border-color: var(--red-primary);
+      box-shadow: 0 0 30px var(--red-glow);
+      transform: translateY(-8px);
+    }
+
+    .skill-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .skill-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .skill-card p {
+      font-size: 13px;
+      color: var(--white-muted);
+      line-height: 1.7;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: var(--red-bright);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* TIMELINE */
+    .timeline-section {
+      background: var(--bg-main);
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--red-bright), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 30px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -33px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      background: var(--red-bright);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--red-glow);
+    }
+
+    .timeline-month {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--red-bright);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 25px 30px;
+      transition: all 0.3s;
+    }
+
+    .timeline-card:hover {
+      border-color: var(--red-primary);
+      box-shadow: 0 0 25px var(--red-glow);
+    }
+
+    .timeline-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .timeline-card p {
+      color: var(--white-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .timeline-stat {
+      display: inline-block;
+      background: rgba(204,0,0,0.15);
+      border: 1px solid var(--red-primary);
+      color: var(--red-bright);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* VALUES */
+    .values-section {
+      background: var(--bg-section);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .value-card:hover {
+      border-color: var(--red-primary);
+      box-shadow: 0 0 30px var(--red-glow);
+      transform: translateY(-8px);
+    }
+
+    .value-icon {
+      font-size: 50px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .value-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .value-card p {
+      color: var(--white-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .story-badge {
+        bottom: 10px;
+        right: 10px;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-banner h1 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .achieve-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-banner h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div id="progress-bar"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">M<span>N</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-btn" onclick="window.location.href='contact.html'">Hire Me 🔥</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">✕</span>
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="about.html" onclick="toggleMenu()">About</a>
+    <a href="services.html" onclick="toggleMenu()">Services</a>
+    <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="contact.html" class="btn-primary" onclick="toggleMenu()">Hire Me 🔥</a>
+  </div>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <p class="breadcrumb">
+        <a href="index.html">Home</a> → About
+      </p>
+      <h1>About <span>Muhammad Naveed</span></h1>
+      <p>The story behind the growth — from zero to 3500+ followers</p>
+    </div>
+  </div>
+
+  <!-- MY STORY -->
+  <section style="background: var(--bg-main);">
+    <div class="story-grid">
+      <div class="story-photo-wrap fade-up">
+        <!-- Replace with your photo -->
+        <img src="images/about.jpg" alt="Muhammad Naveed" class="story-photo">
+        <div class="story-badge">🏆 LinkedIn Growth Expert</div>
+      </div>
+
+      <div class="story-text fade-up">
+        <span class="section-label">— MY STORY —</span>
+        <h2 class="section-title">From Zero to<br><span>3500+</span> Followers</h2>
+        <p class="story-quote">
+          "I didn't have connections, experience, or a big following. I had a strategy."
+        </p>
+        <p>
+          I'm Muhammad Naveed, a Personal Branding Strategist and LinkedIn Growth
+          Expert from Pakistan. In just 6 months, I grew my LinkedIn from absolute
+          zero to 3500+ followers, generating over 100,000 post impressions —
+          completely organically, without spending a single rupee on ads.
+        </p>
+        <p>
+          My journey wasn't easy. I studied the LinkedIn algorithm deeply, tested
+          hundreds of content strategies, and built a system that consistently
+          delivers results. Now I help other professionals do the same.
+        </p>
+        <p>
+          Currently I am mastering Prompt Engineering to combine artificial
+          intelligence with content strategy — creating the next generation of
+          LinkedIn growth systems for professionals like you.
+        </p>
+        <div class="achieve-grid">
+          <div class="achieve-badge">🎯 3500+ Followers</div>
+          <div class="achieve-badge">📊 100K+ Impressions</div>
+          <div class="achieve-badge">⚡ 6 Months Journey</div>
+          <div class="achieve-badge">🤖 AI + Content Expert</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills-section">
+    <div style="max-width:1200px; margin:0 auto;">
+      <span class="section-label">— WHAT I DO —</span>
+      <h2 class="section-title">My Skills &<br><span>Expertise</span></h2>
+      <p class="section-subtitle">
+        A powerful combination of strategy, creativity and technology
+      </p>
+      <div class="skills-grid">
+        <div class="skill-card fade-up">
+          <span class="skill-icon">🎯</span>
+          <h3>Personal Branding</h3>
+          <p>Building brands that attract and convert opportunities on LinkedIn</p>
+          <span class="skill-tag">PRIMARY SKILL</span>
+        </div>
+        <div class="skill-card fade-up">
+          <span class="skill-icon">📈</span>
+          <h3>LinkedIn Growth</h3>
+          <p>Proven systems for explosive organic follower growth</p>
+        </div>
+        <div class="skill-card fade-up">
+          <span class="skill-icon">✍️</span>
+          <h3>Content Writing</h3>
+          <p>Viral hooks and posts that stop the scroll every time</p>
+        </div>
+        <div class="skill-card fade-up">
+          <span class="skill-icon">🤖</span>
+          <h3>Prompt Engineering</h3>
+          <p>AI-powered content creation for maximum efficiency</p>
+          <span class="skill-tag">LEARNING NOW 🔥</span>
+        </div>
+        <div class="skill-card fade-up">
+          <span class="skill-icon">🎬</span>
+          <h3>Video Editing</h3>
+          <p>Professional videos that tell your brand story perfectly</p>
+        </div>
+        <div class="skill-card fade-up">
+          <span class="skill-icon">🎨</span>
+          <h3>Graphic Designing</h3>
+          <p>Eye-catching visuals and thumbnails for LinkedIn</p>
+        </div>
+        <div class="skill-card fade-up">
+          <span class="skill-icon">💻</span>
+          <h3>Web Development</h3>
+          <p>Clean websites that turn visitors into paying clients</p>
+        </div>
+        <div class="skill-card fade-up">
+          <span class="skill-icon">⚙️</span>
+          <h3>Automation</h3>
+          <p>Smart systems that work for you around the clock</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div style="max-width:1200px; margin:0 auto; text-align:center; margin-bottom:60px;">
+      <span class="section-label">— MY JOURNEY —</span>
+      <h2 class="section-title">6 Months That<br>Changed <span>Everything</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <p class="timeline-month">Month 1</p>
+        <div class="timeline-card">
+          <h3>🌱 Starting From Zero</h3>
+          <p>Created LinkedIn profile and posted first content. Studied the algorithm deeply and began building my strategy from scratch.</p>
+          <span class="timeline-stat">0 → 300 Followers</span>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <p class="timeline-month">Month 2</p>
+        <div class="timeline-card">
+          <h3>📝 Finding My Voice</h3>
+          <p>Discovered my niche in personal branding. Content started gaining traction. The LinkedIn algorithm began to notice me.</p>
+          <span class="timeline-stat">300 → 1000 Followers</span>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <p class="timeline-month">Month 3 — 4</p>
+        <div class="timeline-card">
+          <h3>🚀 Breaking Through</h3>
+          <p>Mastered viral hooks, carousels and engagement tactics. Network started exploding organically without paid promotions.</p>
+          <span class="timeline-stat">1000 → 2500 Followers</span>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <p class="timeline-month">Month 5 — 6</p>
+        <div class="timeline-card">
+          <h3>🏆 Mission Accomplished</h3>
+          <p>Crossed 3500+ followers and hit 100,000+ total impressions. The system was working perfectly and consistently delivering results.</p>
+          <span class="timeline-stat">2500 → 3500+ Followers 🔥</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div style="max-width:1200px; margin:0 auto; text-align:center;">
+      <span class="section-label">— WHAT I STAND FOR —</span>
+      <h2 class="section-title">My <span>Values</span></h2>
+      <p class="section-subtitle" style="margin:0 auto 60px;">
+        The principles that guide everything I do
+      </p>
+      <div class="values-grid">
+        <div class="value-card fade-up">
+          <span class="value-icon">💯</span>
+          <h3>Authenticity</h3>
+          <p>Real growth through real content. No fake followers. No shortcuts. No paid promotions. Just pure strategy and consistency.</p>
+        </div>
+        <div class="value-card fade-up">
+          <span class="value-icon">📊</span>
+          <h3>Results First</h3>
+          <p>Every strategy must show measurable results. Numbers never lie — 3500+ followers and 100K+ impressions prove my methods work.</p>
+        </div>
+        <div class="value-card fade-up">
+          <span class="value-icon">🤝</span>
+          <h3>Your Success</h3>
+          <p>Your LinkedIn growth is my personal mission and responsibility. I don't stop until you see real and lasting results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: linear-gradient(135deg, #1a0000, #0a0000); text-align:center;">
+    <span class="section-label">— READY? —</span>
+    <h2 class="section-title">Let's Build Your<br><span>LinkedIn Together</span></h2>
+    <p style="color:var(--white-muted); margin-bottom:40px; font-size:16px;">
+      Your growth story starts with one conversation
+    </p>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary">🚀 Work With Me</a>
+      <a href="https://wa.me/923082409998" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp Me
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MN</div>
+        <p style="font-weight:700; margin-bottom:8px;">Muhammad Naveed</p>
+        <p style="color:var(--white-muted); font-size:13px; line-height:1.7;">
+          Personal Branding &<br>LinkedIn Growth Strategist<br>Pakistan 🇵🇰
+        </p>
+        <p style="color:var(--white-muted); font-size:12px; margin-top:15px; font-style:italic;">
+          "Turning Professionals Into LinkedIn Powerhouses"
+        </p>
+      </div>
+      <div>
+        <p class="footer-title">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="services.html">Profile Optimization</a></li>
+          <li><a href="services.html">LinkedIn Growth</a></li>
+          <li><a href="services.html">Content Strategy</a></li>
+          <li><a href="services.html">Personal Branding</a></li>
+          <li><a href="services.html">Prompt Engineering</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Reach Me</p>
+        <ul class="footer-links">
+          <li><a href="tel:+923082409998">📱 +92 308 2409998</a></li>
+          <li><a href="https://wa.me/923082409998" target="_blank">💬 WhatsApp Same</a></li>
+          <li><a href="#">📍 Pakistan</a></li>
+        </ul>
+        <a href="https://wa.me/923082409998" target="_blank" class="btn-whatsapp"
+           style="margin-top:20px; padding:10px 20px; font-size:13px;">
+          <i class="fab fa-whatsapp"></i> WhatsApp Me
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Muhammad Naveed. All Rights Reserved.</p>
+      <p>Made with ❤️ in Pakistan 🇵🇰</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/923082409998" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp" style="color:white; font-size:30px;"></i>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progress-bar').style.width = (winScroll / height * 100) + '%';
+
+      const nav = document.getElementById('navbar');
+      if (winScroll > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+
+      const backTop = document.getElementById('backTop');
+      if (winScroll > 300) backTop.classList.add('show');
+      else backTop.classList.remove('show');
+
+      document.querySelectorAll('.fade-up').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+          el.classList.add('visible');
+        }
+      });
+    });
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

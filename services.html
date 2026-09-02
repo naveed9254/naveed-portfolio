@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Muhammad Naveed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* PAGE BANNER */
+    .page-banner {
+      min-height: 35vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 40px 60px;
+      background: radial-gradient(ellipse at top right, #2a0000 0%, #0a0000 70%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--white-muted);
+      margin-bottom: 15px;
+    }
+
+    .breadcrumb a {
+      color: var(--red-bright);
+      text-decoration: none;
+    }
+
+    .page-banner h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .page-banner h1 span {
+      color: var(--red-bright);
+    }
+
+    .page-banner p {
+      color: var(--white-muted);
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    /* SERVICES MAIN */
+    .services-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .service-big-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-big-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--red-bright);
+    }
+
+    .service-big-card.featured {
+      border: 2px solid var(--red-bright);
+      box-shadow: 0 0 50px var(--red-glow);
+    }
+
+    .service-big-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px var(--red-glow);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--red-bright);
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .service-badge {
+      display: inline-block;
+      background: rgba(204,0,0,0.15);
+      border: 1px solid var(--red-primary);
+      color: var(--red-bright);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .service-big-card h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 15px;
+    }
+
+    .service-big-card .desc {
+      color: var(--white-muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .service-icon-big {
+      font-size: 80px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .ideal-for {
+      background: rgba(204,0,0,0.08);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 15px 20px;
+      font-size: 13px;
+      color: var(--white-muted);
+      margin-top: 20px;
+    }
+
+    .ideal-for strong {
+      color: var(--red-bright);
+    }
+
+    /* CHECKLIST */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--white-soft);
+      line-height: 1.6;
+    }
+
+    .checklist li::before {
+      content: '✅';
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* PROCESS */
+    .process-section {
+      background: var(--bg-section);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .process-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .process-card:hover {
+      border-color: var(--red-primary);
+      box-shadow: 0 0 30px var(--red-glow);
+      transform: translateY(-8px);
+    }
+
+    .process-number {
+      width: 50px;
+      height: 50px;
+      background: var(--red-bright);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: white;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+
+    .process-icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .process-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .process-card p {
+      font-size: 13px;
+      color: var(--white-muted);
+      line-height: 1.7;
+    }
+
+    /* FAQ */
+    .faq-section {
+      background: var(--bg-main);
+    }
+
+    .faq-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item.open {
+      border-color: var(--red-primary);
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+
+    .faq-question {
+      padding: 22px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+
+    .faq-question:hover {
+      color: var(--red-bright);
+    }
+
+    .faq-icon {
+      color: var(--red-bright);
+      font-size: 20px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-answer p {
+      padding: 0 25px 22px;
+      color: var(--white-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .service-big-card {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .page-banner h1 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-banner h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div id="progress-bar"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">M<span>N</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-btn" onclick="window.location.href='contact.html'">Hire Me 🔥</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">✕</span>
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="about.html" onclick="toggleMenu()">About</a>
+    <a href="services.html" onclick="toggleMenu()">Services</a>
+    <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="contact.html" class="btn-primary" onclick="toggleMenu()">Hire Me 🔥</a>
+  </div>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <p class="breadcrumb">
+        <a href="index.html">Home</a> → Services
+      </p>
+      <h1>Services Built For <span>Growth</span></h1>
+      <p>Choose your path to LinkedIn dominance — real results, no shortcuts</p>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section style="background: var(--bg-main);">
+    <div style="max-width:1200px; margin:0 auto;">
+      <span class="section-label">— HOW I HELP —</span>
+      <h2 class="section-title">What I <span>Offer</span></h2>
+      <p class="section-subtitle">
+        Three powerful packages designed to grow your LinkedIn from wherever you are right now
+      </p>
+
+      <div class="services-wrap">
+
+        <!-- SERVICE 1 -->
+        <div class="service-big-card fade-up">
+          <div>
+            <div class="service-icon-big">🎯</div>
+            <p style="text-align:center; color:var(--white-muted); font-size:14px;">
+              Perfect starting point for your LinkedIn journey
+            </p>
+          </div>
+          <div>
+            <span class="service-badge">STARTER PACKAGE</span>
+            <h2>LinkedIn Profile Power-Up</h2>
+            <p class="desc">
+              Perfect for professionals who want a strong LinkedIn foundation
+              that attracts the right people and opportunities automatically.
+            </p>
+            <ul class="checklist">
+              <li>Complete profile audit and detailed feedback</li>
+              <li>Headline and tagline optimization</li>
+              <li>About section professional rewrite</li>
+              <li>Banner design consultation</li>
+              <li>Keyword and SEO optimization</li>
+              <li>Profile photo guidance and tips</li>
+              <li>Connection strategy basics</li>
+            </ul>
+            <div class="ideal-for">
+              <strong>Ideal For:</strong> Beginners and professionals
+              starting their LinkedIn journey from scratch
+            </div>
+            <a href="contact.html" class="btn-outline" style="margin-top:25px; display:inline-block;">
+              Get Started →
+            </a>
+          </div>
+        </div>
+
+        <!-- SERVICE 2 FEATURED -->
+        <div class="service-big-card featured fade-up">
+          <span class="featured-badge">🔥 MOST POPULAR</span>
+          <div>
+            <div class="service-icon-big">🚀</div>
+            <p style="text-align:center; color:var(--white-muted); font-size:14px;">
+              My exact system — 3500+ followers in 6 months
+            </p>
+          </div>
+          <div>
+            <span class="service-badge">GROWTH PACKAGE</span>
+            <h2>LinkedIn Growth System</h2>
+            <p class="desc">
+              My exact proven system that took me from zero to 3500+ followers
+              in only 6 months — now available for you to implement and grow fast.
+            </p>
+            <ul class="checklist">
+              <li>Everything in Starter Package</li>
+              <li>30-day content strategy roadmap</li>
+              <li>Viral hook writing formulas</li>
+              <li>Carousel and post templates</li>
+              <li>Network building system</li>
+              <li>Daily 15-minute growth routine</li>
+              <li>Engagement strategy guide</li>
+              <li>Algorithm optimization tips</li>
+              <li>Weekly progress tracking</li>
+            </ul>
+            <div class="ideal-for">
+              <strong>Ideal For:</strong> Professionals serious about
+              building a real LinkedIn audience fast and consistently
+            </div>
+            <a href="contact.html" class="btn-primary" style="margin-top:25px; display:inline-block;">
+              Start Growing 🚀
+            </a>
+          </div>
+        </div>
+
+        <!-- SERVICE 3 -->
+        <div class="service-big-card fade-up">
+          <div>
+            <div class="service-icon-big">💎</div>
+            <p style="text-align:center; color:var(--white-muted); font-size:14px;">
+              Complete brand building from zero to authority
+            </p>
+          </div>
+          <div>
+            <span class="service-badge">PREMIUM PACKAGE</span>
+            <h2>Personal Brand Mastery</h2>
+            <p class="desc">
+              Complete done-with-you personal brand building for serious
+              professionals who want to become LinkedIn authorities in their niche.
+            </p>
+            <ul class="checklist">
+              <li>Everything in Growth Package</li>
+              <li>AI-powered content with prompt engineering</li>
+              <li>Custom graphics and thumbnail design</li>
+              <li>Video content strategy and editing</li>
+              <li>Personal brand identity system</li>
+              <li>LinkedIn automation setup</li>
+              <li>Monthly 1-on-1 strategy session</li>
+              <li>Web presence optimization</li>
+              <li>90-day complete growth roadmap</li>
+            </ul>
+            <div class="ideal-for">
+              <strong>Ideal For:</strong> Entrepreneurs and executives
+              building a powerful long-term personal brand
+            </div>
+            <a href="contact.html" class="btn-outline" style="margin-top:25px; display:inline-block;">
+              Go Premium →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div style="max-width:1200px; margin:0 auto; text-align:center;">
+      <span class="section-label">— HOW IT WORKS —</span>
+      <h2 class="section-title">My Simple <span>4-Step</span> Process</h2>
+      <p class="section-subtitle" style="margin: 0 auto 60px;">
+        From our first conversation to your LinkedIn growth — here's exactly what happens
+      </p>
+      <div class="process-grid">
+        <div class="process-card fade-up">
+          <div class="process-number">1</div>
+          <span class="process-icon">📞</span>
+          <h3>Discovery Call</h3>
+          <p>We discuss your goals, current LinkedIn situation and exactly what you want to achieve</p>
+        </div>
+        <div class="process-card fade-up">
+          <div class="process-number">2</div>
+          <span class="process-icon">📋</span>
+          <h3>Strategy Building</h3>
+          <p>I create a custom LinkedIn growth strategy specifically designed for your niche and goals</p>
+        </div>
+        <div class="process-card fade-up">
+          <div class="process-number">3</div>
+          <span class="process-icon">🚀</span>
+          <h3>Implementation</h3>
+          <p>We execute the strategy together with full support, guidance and regular check-ins</p>
+        </div>
+        <div class="process-card fade-up">
+          <div class="process-number">4</div>
+          <span class="process-icon">📈</span>
+          <h3>Growth & Results</h3>
+          <p>Watch your LinkedIn grow with real measurable results you can see and track</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div style="max-width:1200px; margin:0 auto;">
+      <span class="section-label">— FAQ —</span>
+      <h2 class="section-title">Common <span>Questions</span></h2>
+      <p class="section-subtitle">
+        Everything you need to know before getting started
+      </p>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How long does it take to see results?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Most clients see significant growth within 30-60 days of implementing the strategy consistently. I grew to 3500+ followers in 6 months starting from zero.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Do I need a big following to start?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely not! I started from zero followers. My system is specifically designed to work for complete beginners and helps build from scratch.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Is this only for LinkedIn?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>My primary focus is LinkedIn but the personal branding principles and content strategies apply to all professional platforms and your overall online presence.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How do I contact you to get started?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>The easiest and fastest way is WhatsApp at +923082409998. I respond within 24 hours — usually much faster. You can also use the contact form on this website.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Do you work with international clients?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! I work remotely with professionals from Pakistan and around the world. LinkedIn growth strategies work globally regardless of your location.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: linear-gradient(135deg, #1a0000, #0a0000); text-align:center;">
+    <span class="section-label">— READY TO START? —</span>
+    <h2 class="section-title">Let's Grow Your<br><span>LinkedIn Today</span></h2>
+    <p style="color:var(--white-muted); margin-bottom:40px; font-size:16px;">
+      One conversation can change your entire LinkedIn journey
+    </p>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary">🚀 Get Started Now</a>
+      <a href="https://wa.me/923082409998" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp Me
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MN</div>
+        <p style="font-weight:700; margin-bottom:8px;">Muhammad Naveed</p>
+        <p style="color:var(--white-muted); font-size:13px; line-height:1.7;">
+          Personal Branding &<br>LinkedIn Growth Strategist<br>Pakistan 🇵🇰
+        </p>
+        <p style="color:var(--white-muted); font-size:12px; margin-top:15px; font-style:italic;">
+          "Turning Professionals Into LinkedIn Powerhouses"
+        </p>
+      </div>
+      <div>
+        <p class="footer-title">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="services.html">Profile Optimization</a></li>
+          <li><a href="services.html">LinkedIn Growth</a></li>
+          <li><a href="services.html">Content Strategy</a></li>
+          <li><a href="services.html">Personal Branding</a></li>
+          <li><a href="services.html">Prompt Engineering</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Reach Me</p>
+        <ul class="footer-links">
+          <li><a href="tel:+923082409998">📱 +92 308 2409998</a></li>
+          <li><a href="https://wa.me/923082409998" target="_blank">💬 WhatsApp Same</a></li>
+          <li><a href="#">📍 Pakistan</a></li>
+        </ul>
+        <a href="https://wa.me/923082409998" target="_blank" class="btn-whatsapp"
+           style="margin-top:20px; padding:10px 20px; font-size:13px;">
+          <i class="fab fa-whatsapp"></i> WhatsApp Me
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Muhammad Naveed. All Rights Reserved.</p>
+      <p>Made with ❤️ in Pakistan 🇵🇰</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/923082409998" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp" style="color:white; font-size:30px;"></i>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progress-bar').style.width = (winScroll / height * 100) + '%';
+      const nav = document.getElementById('navbar');
+      if (winScroll > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      const backTop = document.getElementById('backTop');
+      if (winScroll > 300) backTop.classList.add('show');
+      else backTop.classList.remove('show');
+      document.querySelectorAll('.fade-up').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+          el.classList.add('visible');
+        }
+      });
+    });
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const allItems = document.querySelectorAll('.faq-item');
+      allItems.forEach(i => {
+        if (i !== item) i.classList.remove('open');
+      });
+      item.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Muhammad Naveed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* PAGE BANNER */
+    .page-banner {
+      min-height: 35vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 40px 60px;
+      background: radial-gradient(ellipse at top right, #2a0000 0%, #0a0000 70%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--white-muted);
+      margin-bottom: 15px;
+    }
+
+    .breadcrumb a {
+      color: var(--red-bright);
+      text-decoration: none;
+    }
+
+    .page-banner h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .page-banner h1 span {
+      color: var(--red-bright);
+    }
+
+    .page-banner p {
+      color: var(--white-muted);
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    /* CONTACT GRID */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* CONTACT INFO */
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,200,0,0.1);
+      border: 1px solid rgba(0,200,0,0.3);
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #00cc44;
+      margin-bottom: 35px;
+    }
+
+    .avail-dot {
+      width: 10px;
+      height: 10px;
+      background: #00cc44;
+      border-radius: 50%;
+      animation: pulse-green 1.5s infinite;
+    }
+
+    .contact-info-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .contact-info-sub {
+      color: var(--white-muted);
+      font-size: 14px;
+      margin-bottom: 35px;
+      line-height: 1.7;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 22px 25px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .contact-card:hover {
+      border-color: var(--red-primary);
+      box-shadow: 0 0 25px var(--red-glow);
+      transform: translateX(5px);
+    }
+
+    .contact-card-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(204,0,0,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--red-bright);
+      flex-shrink: 0;
+    }
+
+    .contact-card-info label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red-bright);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-card-info p {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .contact-card-info small {
+      font-size: 12px;
+      color: var(--white-muted);
+    }
+
+    /* WHATSAPP HIGHLIGHT BOX */
+    .whatsapp-box {
+      background: rgba(37,211,102,0.08);
+      border: 2px solid rgba(37,211,102,0.3);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .whatsapp-box p {
+      color: var(--white-muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .whatsapp-box strong {
+      color: white;
+      display: block;
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* CONTACT FORM */
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 45px 40px;
+    }
+
+    .form-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      color: var(--white-muted);
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white-soft);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group label span {
+      color: var(--red-bright);
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: var(--white);
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--red-bright);
+      box-shadow: 0 0 15px var(--red-glow);
+      background: #1a0000;
+    }
+
+    .form-control::placeholder {
+      color: var(--white-muted);
+    }
+
+    select.form-control option {
+      background: var(--bg-card);
+      color: var(--white);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--red-bright);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 5px 20px var(--red-glow);
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      background: var(--red-primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px var(--red-glow);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* SUCCESS MESSAGE */
+    .success-msg {
+      display: none;
+      background: rgba(0,200,0,0.1);
+      border: 1px solid rgba(0,200,0,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: #00cc44;
+      font-weight: 600;
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    /* LOCATION INFO */
+    .location-section {
+      background: var(--bg-section);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .location-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .location-card:hover {
+      border-color: var(--red-primary);
+      box-shadow: 0 0 20px var(--red-glow);
+      transform: translateY(-5px);
+    }
+
+    .location-card i {
+      font-size: 30px;
+      color: var(--red-bright);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .location-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .location-card p {
+      font-size: 13px;
+      color: var(--white-muted);
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .page-banner h1 {
+        font-size: 38px;
+      }
+
+      .form-card {
+        padding: 30px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-banner h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div id="progress-bar"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">M<span>N</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html" class="nav-btn" onclick="window.location.href='contact.html'">Hire Me 🔥</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">✕</span>
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="about.html" onclick="toggleMenu()">About</a>
+    <a href="services.html" onclick="toggleMenu()">Services</a>
+    <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="contact.html" class="btn-primary" onclick="toggleMenu()">Hire Me 🔥</a>
+  </div>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <p class="breadcrumb">
+        <a href="index.html">Home</a> → Contact
+      </p>
+      <h1>Let's Work <span>Together</span></h1>
+      <p>Ready to grow your LinkedIn? Let's talk — I respond within 24 hours</p>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section style="background: var(--bg-main);">
+    <div class="contact-grid">
+
+      <!-- LEFT — CONTACT INFO -->
+      <div>
+        <div class="availability-badge">
+          <div class="avail-dot"></div>
+          Currently Available for New Projects
+        </div>
+
+        <h2 class="contact-info-title">Get In Touch</h2>
+        <p class="contact-info-sub">
+          Have a question or want to grow your LinkedIn?
+          I'm here to help. Reach out through any of
+          the options below — WhatsApp is fastest!
+        </p>
+
+        <!-- PHONE -->
+        <a href="tel:+923082409998" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-card-info">
+            <label>Call Me</label>
+            <p>+92 308 2409998</p>
+            <small>Available Mon–Sat, 9AM–10PM PKT</small>
+          </div>
+        </a>
+
+        <!-- WHATSAPP -->
+        <a href="https://wa.me/923082409998" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="background: rgba(37,211,102,0.15); color: #25d366;">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="contact-card-info">
+            <label style="color: #25d366;">WhatsApp — Fastest!</label>
+            <p>+92 308 2409998</p>
+            <small>Usually replies within 1–2 hours</small>
+          </div>
+        </a>
+
+        <!-- LINKEDIN -->
+        <a href="#" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="background: rgba(10,102,194,0.15); color: #0a66c2;">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-card-info">
+            <label style="color: #0a66c2;">LinkedIn Profile</label>
+            <p>Muhammad Naveed</p>
+            <small>3500+ Followers | Connect & Follow</small>
+          </div>
+        </a>
+
+        <!-- LOCATION -->
+        <div class="contact-card" style="cursor: default;">
+          <div class="contact-card-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-card-info">
+            <label>Location</label>
+            <p>Pakistan 🇵🇰</p>
+            <small>Available for remote work worldwide</small>
+          </div>
+        </div>
+
+        <!-- WHATSAPP HIGHLIGHT -->
+        <div class="whatsapp-box">
+          <p>⚡ Fastest way to reach me:</p>
+          <strong>+92 308 2409998</strong>
+          <a href="https://wa.me/923082409998"
+             target="_blank"
+             class="btn-whatsapp"
+             style="display:inline-flex; padding:12px 30px;">
+            <i class="fab fa-whatsapp"></i>
+            Open WhatsApp Now
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT — CONTACT FORM -->
+      <div class="form-card">
+        <h3 class="form-title">Send Me a Message</h3>
+        <p class="form-subtitle">Fill the form below and I'll get back to you within 24 hours</p>
+
+        <form id="contactForm" onsubmit="submitForm(event)">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name <span>*</span></label>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Your full name"
+                     required />
+            </div>
+            <div class="form-group">
+              <label>Email Address <span>*</span></label>
+              <input type="email"
+                     class="form-control"
+                     placeholder="your@email.com"
+                     required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel"
+                   class="form-control"
+                   placeholder="+92 xxx xxxxxxx" />
+          </div>
+
+          <div class="form-group">
+            <label>I need help with: <span>*</span></label>
+            <select class="form-control" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option>LinkedIn Profile Optimization</option>
+              <option>LinkedIn Growth Strategy</option>
+              <option>Content Writing & Strategy</option>
+              <option>Personal Brand Building</option>
+              <option>Prompt Engineering</option>
+              <option>Graphic Design / Video Editing</option>
+              <option>Web Development</option>
+              <option>Automation Setup</option>
+              <option>General Consultation</option>
+              <option>Something Else</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Tell me about your LinkedIn goals: <span>*</span></label>
+            <textarea class="form-control"
+                      placeholder="Where are you currently on LinkedIn? What do you want to achieve? How soon do you need results? Tell me everything..."
+                      required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Send Message 🚀
+          </button>
+
+          <div class="success-msg" id="successMsg">
+            ✅ Message sent successfully! I'll get back to you within 24 hours.
+            For faster response, WhatsApp me at +92 308 2409998
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION INFO -->
+  <section class="location-section">
+    <div style="max-width:1200px; margin:0 auto; text-align:center;">
+      <span class="section-label">— DETAILS —</span>
+      <h2 class="section-title">Quick <span>Info</span></h2>
+      <div class="location-grid">
+        <div class="location-card fade-up">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Based In</h3>
+          <p>Pakistan 🇵🇰<br>Available Worldwide</p>
+        </div>
+        <div class="location-card fade-up">
+          <i class="fas fa-clock"></i>
+          <h3>Working Hours</h3>
+          <p>Mon – Sat<br>9 AM – 10 PM PKT</p>
+        </div>
+        <div class="location-card fade-up">
+          <i class="fas fa-reply"></i>
+          <h3>Response Time</h3>
+          <p>Within 24 Hours<br>WhatsApp is Fastest</p>
+        </div>
+        <div class="location-card fade-up">
+          <i class="fas fa-globe"></i>
+          <h3>Work Type</h3>
+          <p>100% Remote<br>Worldwide Clients</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section style="background: linear-gradient(135deg, #1a0000, #0a0000); text-align:center;">
+    <span class="section-label">— DON'T WAIT —</span>
+    <h2 class="section-title">Start Your LinkedIn<br><span>Journey Today</span></h2>
+    <p style="color:var(--white-muted); margin-bottom:40px; font-size:16px;">
+      Every day you wait is a day your competitors grow ahead of you
+    </p>
+    <a href="https://wa.me/923082409998"
+       target="_blank"
+       class="btn-whatsapp"
+       style="font-size:18px; padding:18px 45px;">
+      <i class="fab fa-whatsapp"></i>
+      WhatsApp: +92 308 2409998
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MN</div>
+        <p style="font-weight:700; margin-bottom:8px;">Muhammad Naveed</p>
+        <p style="color:var(--white-muted); font-size:13px; line-height:1.7;">
+          Personal Branding &<br>LinkedIn Growth Strategist<br>Pakistan 🇵🇰
+        </p>
+        <p style="color:var(--white-muted); font-size:12px; margin-top:15px; font-style:italic;">
+          "Turning Professionals Into LinkedIn Powerhouses"
+        </p>
+      </div>
+      <div>
+        <p class="footer-title">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="services.html">Profile Optimization</a></li>
+          <li><a href="services.html">LinkedIn Growth</a></li>
+          <li><a href="services.html">Content Strategy</a></li>
+          <li><a href="services.html">Personal Branding</a></li>
+          <li><a href="services.html">Prompt Engineering</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Reach Me</p>
+        <ul class="footer-links">
+          <li><a href="tel:+923082409998">📱 +92 308 2409998</a></li>
+          <li><a href="https://wa.me/923082409998" target="_blank">💬 WhatsApp Same</a></li>
+          <li><a href="#">📍 Pakistan</a></li>
+        </ul>
+        <a href="https://wa.me/923082409998"
+           target="_blank"
+           class="btn-whatsapp"
+           style="margin-top:20px; padding:10px 20px; font-size:13px;">
+          <i class="fab fa-whatsapp"></i> WhatsApp Me
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Muhammad Naveed. All Rights Reserved.</p>
+      <p>Made with ❤️ in Pakistan 🇵🇰</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/923082409998" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp" style="color:white; font-size:30px;"></i>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progress-bar').style.width = (winScroll / height * 100) + '%';
+      const nav = document.getElementById('navbar');
+      if (winScroll > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      const backTop = document.getElementById('backTop');
+      if (winScroll > 300) backTop.classList.add('show');
+      else backTop.classList.remove('show');
+      document.querySelectorAll('.fade-up').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+          el.classList.add('visible');
+        }
+      });
+    });
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('contactForm').reset();
+      setTimeout(() => {
+        document.getElementById('successMsg').style.display = 'none';
+      }, 6000);
+    }
+  </script>
+</body>
+</html>
